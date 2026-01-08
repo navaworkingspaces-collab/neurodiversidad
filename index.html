@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neurodiversidad: Conocimiento y Empatía</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        .section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #764ba2;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #667eea;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 12px;
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .card h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .myth-reality {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .myth, .reality {
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .myth {
+            background: #ffe0e0;
+            border-left: 5px solid #ff4444;
+        }
+
+        .reality {
+            background: #e0ffe0;
+            border-left: 5px solid #44ff44;
+        }
+
+        .myth h4 {
+            color: #cc0000;
+            margin-bottom: 10px;
+        }
+
+        .reality h4 {
+            color: #008800;
+            margin-bottom: 10px;
+        }
+
+        .resources {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .resources ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .resources li {
+            padding: 12px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .resources li:hover {
+            background: #667eea;
+            color: white;
+            transform: translateX(10px);
+        }
+
+        .testimonial {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 20px 0;
+            font-style: italic;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 4em;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            opacity: 0.3;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            color: white;
+        }
+
+        .stat-box h3 {
+            font-size: 3em;
+            margin: 0;
+            color: white;
+        }
+
+        .stat-box p {
+            margin-top: 10px;
+            font-size: 1.1em;
+        }
+
+        footer {
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .reflection-area {
+            background: #fff9e6;
+            border: 2px dashed #667eea;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .reflection-area textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1em;
+            resize: vertical;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .myth-reality {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+
+        .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .accordion {
+            margin-top: 20px;
+        }
+
+        .accordion-item {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            background: #667eea;
+            color: white;
+            padding: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: #764ba2;
+        }
+
+        .accordion-content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .accordion-content.active {
+            padding: 20px;
+            max-height: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠 Neurodiversidad: Construyendo una Sociedad Inclusiva</h1>
+            <p>Conocimiento, Empatía y Comprensión hacia los Trastornos del Neurodesarrollo</p>
+        </header>
+
+        <div class="section">
+            <h2>¿Qué es la Neurodiversidad?</h2>
+            <p>La neurodiversidad es un concepto que reconoce y respeta las diferencias neurológicas como una variación natural de la cognición humana. No todas las personas piensan, aprenden o procesan información de la misma manera, y estas diferencias no son defectos, sino variaciones naturales que enriquecen nuestra sociedad.</p>
+            
+            <div class="stats">
+                <div class="stat-box">
+                    <h3>15-20%</h3>
+                    <p>de la población mundial es neurodivergente</p>
+                </div>
+                <div class="stat-box">
+                    <h3>1 de 36</h3>
+                    <p>niños es diagnosticado con autismo</p>
+                </div>
+                <div class="stat-box">
+                    <h3>5-7%</h3>
+                    <p>de niños tiene TDAH</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 30px;">El término fue acuñado por la socióloga Judy Singer en 1998 y promueve la idea de que las diferencias neurológicas deben ser reconocidas y respetadas como cualquier otra variación humana. La neurodiversidad abarca condiciones como el autismo, TDAH, dislexia, dispraxia, síndrome de Tourette, entre otros.</p>
+        </div>
+
+        <div class="section">
+            <h2>Principales Trastornos del Neurodesarrollo</h2>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="icon">🎨</div>
+                    <h3>Trastorno del Espectro Autista (TEA)</h3>
+                    <p>Condición que afecta la comunicación social, interacción y puede incluir patrones repetitivos de comportamiento. Cada persona con autismo es única, con fortalezas y desafíos particulares.</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">⚡</div>
+                    <h3>TDAH</h3>
+                    <p>Trastorno por Déficit de Atención e Hiperactividad. Afecta la capacidad de mantener la atención, controlar impulsos y regular la actividad motora. Puede presentarse con o sin hiperactividad.</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">📖</div>
+                    <h3>Dislexia</h3>
+                    <p>Dificultad específica en el aprendizaje de la lectura y escritura, sin que exista una discapacidad intelectual. Las personas con dislexia pueden tener grandes habilidades en otras áreas.</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">🎯</div>
+                    <h3>Dispraxia</h3>
+                    <p>Trastorno que afecta la coordinación motora y la planificación de movimientos. Puede impactar actividades diarias como vestirse, escribir o practicar deportes.</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">🗣️</div>
+                    <h3>Trastornos del Lenguaje</h3>
+                    <p>Dificultades en la comprensión o expresión del lenguaje hablado o escrito. Puede afectar la fonología, gramática, vocabulario o el uso social del lenguaje.</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">🔢</div>
+                    <h3>Discalculia</h3>
+                    <p>Dificultad específica en el aprendizaje de las matemáticas y conceptos numéricos. Afecta la comprensión de números, operaciones y razonamiento matemático.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>El Espectro del Autismo (TEA)</h2>
+            <p>El Trastorno del Espectro Autista es una condición del neurodesarrollo que se presenta de manera diferente en cada persona. Por eso se habla de un "espectro": no hay dos personas autistas iguales.</p>
+
+            <h3>Características principales:</h3>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        🤝 Diferencias en la Comunicación Social
+                    </div>
+                    <div class="accordion-content">
+                        <p>Las personas con autismo pueden tener formas diferentes de comunicarse e interactuar socialmente. Algunas pueden tener dificultad para interpretar lenguaje no verbal, mantener conversaciones recíprocas, o entender las normas sociales implícitas. Esto no significa que no quieran conectar con otros, sino que lo hacen de manera diferente.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        🔄 Patrones de Comportamiento e Intereses
+                    </div>
+                    <div class="accordion-content">
+                        <p>Pueden presentar intereses intensos y específicos, necesidad de rutinas, movimientos repetitivos (estimming), y sensibilidades sensoriales particulares. Estos comportamientos no son caprichos, sino formas de regulación y comprensión del mundo.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        💪 Fortalezas del Autismo
+                    </div>
+                    <div class="accordion-content">
+                        <p>Muchas personas autistas tienen fortalezas excepcionales como atención al detalle, pensamiento lógico, memoria extraordinaria, creatividad única, honestidad directa y capacidad de enfoque profundo en áreas de interés. Estas fortalezas son valiosas para la sociedad.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        🌈 Diversidad dentro del Espectro
+                    </div>
+                    <div class="accordion-content">
+                        <p>El espectro abarca desde personas que necesitan apoyo significativo en su vida diaria hasta personas que viven de manera independiente. Algunos son verbales, otros no verbales pero comunican de otras formas. Cada experiencia es válida y única.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Mitos vs. Realidades</h2>
+            <p>Desmintamos algunos de los mitos más comunes sobre los trastornos del neurodesarrollo:</p>
+
+            <div class="myth-reality">
+                <div class="myth">
+                    <h4>❌ MITO</h4>
+                    <p>El autismo es causado por las vacunas</p>
+                </div>
+                <div class="reality">
+                    <h4>✅ REALIDAD</h4>
+                    <p>Múltiples estudios científicos han demostrado que NO existe relación entre las vacunas y el autismo. El autismo tiene causas genéticas y del neurodesarrollo.</p>
+                </div>
+            </div>
+
+            <div class="myth-reality">
+                <div class="myth">
+                    <h4>❌ MITO</h4>
+                    <p>Las personas autistas no sienten emociones</p>
+                </div>
+                <div class="reality">
+                    <h4>✅ REALIDAD</h4>
+                    <p>Las personas autistas sienten emociones profundamente, solo pueden expresarlas de manera diferente. Pueden tener empatía muy desarrollada.</p>
+                </div>
+            </div>
+
+            <div class="myth-reality">
+                <div class="myth">
+                    <h4>❌ MITO</h4>
+                    <p>El TDAH es solo falta de disciplina</p>
+                </div>
+                <div class="reality">
+                    <h4>✅ REALIDAD</h4>
+                    <p>El TDAH es una condición neurobiológica real que afecta la función ejecutiva del cerebro. No es cuestión de fuerza de voluntad o crianza.</p>
+                </div>
+            </div>
+
+            <div class="myth-reality">
+                <div class="myth">
+                    <h4>❌ MITO</h4>
+                    <p>Todos los autistas son genios o tienen habilidades especiales</p>
+                </div>
+                <div class="reality">
+                    <h4>✅ REALIDAD</h4>
+                    <p>Si bien algunas personas autistas tienen habilidades excepcionales, cada persona es diferente. El autismo se presenta en todas las capacidades intelectuales.</p>
+                </div>
+            </div>
+
+            <div class="myth-reality">
+                <div class="myth">
+                    <h4>❌ MITO</h4>
+                    <p>La dislexia desaparece con la edad</p>
+                </div>
+                <div class="reality">
+                    <h4>✅ REALIDAD</h4>
+                    <p>La dislexia es una condición de por vida, aunque con las estrategias adecuadas las personas pueden aprender a manejarla efectivamente y tener éxito académico y profesional.</p>
+                </div>
+            </div>
+
+            <div class="myth-reality">
+                <div class="myth">
+                    <h4>❌ MITO</h4>
+                    <p>Solo los niños tienen estos trastornos</p>
+                </div>
+                <div class="reality">
+                    <h4>✅ REALIDAD</h4>
+                    <p>Los trastornos del neurodesarrollo están presentes toda la vida. Muchos adultos reciben diagnósticos tardíos y aprenden a entenderse mejor.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Perspectivas y Testimonios</h2>
+            
+            <div class="testimonial">
+                <p>"No necesito ser 'curado'. Necesito ser comprendido. Mi cerebro funciona diferente, y eso está bien. Lo que necesito es una sociedad que valore la diversidad en todas sus formas."</p>
+                <p style="text-align: right; margin-top: 15px;"><strong>- Perspectiva de una persona autista</strong></p>
+            </div>
+
+            <div class="testimonial">
+                <p>"Tener TDAH no significa que sea perezoso o irresponsable. Significa que mi cerebro necesita estructuras y estrategias diferentes. Cuando encuentro lo que funciona para mí, puedo lograr cosas increíbles."</p>
+                <p style="text-align: right; margin-top: 15px;"><strong>- Perspectiva de una persona con TDAH</strong></p>
+            </div>
+
+            <div class="testimonial">
+                <p>"La dislexia me hizo más creativo. Mientras otros leen palabras, yo veo imágenes y conexiones. He aprendido a usar mi mente de manera única, y ahora veo mi dislexia como una fortaleza."</p>
+                <p style="text-align: right; margin-top: 15px;"><strong>- Perspectiva de una persona con dislexia</strong></p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>¿Cómo Podemos Ser Más Inclusivos?</h2>
+            
+            <h3>En el entorno educativo:</h3>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                <li>Ofrecer diferentes formas de evaluar el conocimiento (oral, escrito, proyectos, etc.)</li>
+                <li>Permitir uso de tecnologías de apoyo</li>
+                <li>Respetar diferentes ritmos y estilos de aprendizaje</li>
+                <li>Crear espacios sensorialmente amigables</li>
+                <li>Formar a docentes en neurodiversidad</li>
+            </ul>
+
+            <h3>En el entorno laboral:</h3>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                <li>Flexibilidad en horarios y modalidades de trabajo</li>
+                <li>Comunicación clara y directa de expectativas</li>
+                <li>Valorar diferentes estilos de trabajo</li>
+                <li>Crear procesos de contratación inclusivos</li>
+                <li>Ofrecer ajustes razonables personalizados</li>
+            </ul>
+
+            <h3>En la vida cotidiana:</h3>
+            <ul style="margin-left: 20px;">
+                <li>Practicar la escucha activa sin juzgar</li>
+                <li>No asumir capacidades basándose en apariencias</li>
+                <li>Respetar las necesidades de estimulación sensorial</li>
+                <li>Usar lenguaje respetuoso e inclusivo</li>
+                <li>Educarse continuamente sobre neurodiversidad</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Recursos Recomendados para Aprender Más</h2>
+            
+            <div class="resources">
+                <h3>📚 Lecturas y Artículos:</h3>
+                <ul>
+                    <li>Organización Mundial de la Salud - Trastornos del Espectro Autista</li>
+                    <li>Autism Speaks - Recursos y guías en español</li>
+                    <li>Fundación CADAH - Centro de Apoyo al Déficit de Atención e Hiperactividad</li>
+                    <li>Disfam - Información sobre dislexia en español</li>
+                    <li>"Neurotribes" de Steve Silberman - Historia del autismo</li>
+                </ul>
+
+                <h3>🎥 Videos y Documentales:</h3>
+                <ul>
+                    <li>"Life, Animated" - Documental sobre autismo</li>
+                    <li>TED Talks sobre neurodiversidad</li>
+                    <li>"The Reason I Jump" - Perspectivas sobre el autismo</li>
+                    <li>Canales de YouTube de personas neurodivergentes compartiendo sus experiencias</li>
+                </ul>
+
+                <h3>🌐 Organizaciones y Sitios Web:</h3>
+                <ul>
+                    <li>Autismo España - www.autismo.org.es</li>
+                    <li>FEAADAH - Federación Española de Asociaciones de Ayuda al Déficit de Atención e Hiperactividad</li>
+                    <li>Confederación Autismo España</li>
+                    <li>Autism Self Advocacy Network (ASAN)</li>
+                    <li>Understood.org - Recursos sobre dificultades de aprendizaje</li>
+                </ul>
+            </div>
+        </div>
+
+None
+
+        <div class="section" style="text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <h2 style="color: white; border-bottom: 3px solid white;">Construyamos Juntos una Sociedad Inclusiva</h2>
+            <p style="font-size: 1.2em; margin: 20px 0;">El conocimiento es el primer paso hacia la empatía. La empatía es el primer paso hacia la inclusión.</p>
+            <p style="font-size: 1.1em; margin: 20px 0;">Cada persona neurodivergente tiene talentos únicos, perspectivas valiosas y el derecho a ser respetada y valorada por quien es.</p>
+            <p style="font-size: 1.3em; margin-top: 30px; font-weight: bold;">🌟 La diversidad neurológica enriquece nuestra humanidad 🌟</p>
+        </div>
+
+        <footer>
+            <p><strong>Proyecto de Servicio Social - UTEL</strong></p>
+            <p>Fundación con Causa - Promoviendo la inclusión a través del conocimiento</p>
+            <p style="margin-top: 15px; color: #666;">Recuerda: La neurodiversidad no necesita cura, necesita comprensión y aceptación.</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const allContents = document.querySelectorAll('.accordion-content');
+            
+            allContents.forEach(item => {
+                if (item !== content) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            content.classList.toggle('active');
+        }
+
+        // Animación de aparición al hacer scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
